@@ -1,7 +1,10 @@
-package ru.gb.ProductService.impl;
+package ru.gb.Service.impl;
 
 import org.hibernate.cfg.Configuration;
-import ru.gb.ProductService.ProductDao;
+import ru.gb.Service.CustomerDao;
+import ru.gb.Service.ProductDao;
+import ru.gb.core.EntityCore;
+import ru.gb.model.Customer;
 import ru.gb.model.Product;
 
 import javax.persistence.EntityManager;
@@ -9,12 +12,9 @@ import javax.persistence.EntityManagerFactory;
 
 import java.util.List;
 
-public class ProductDaoImpl implements ProductDao {
-
-    EntityManagerFactory factory = new Configuration().configure("hibernate.cfg.xml")
-            .buildSessionFactory();
-    EntityManager entityManager = factory.createEntityManager();
-
+public class CustomerDaoImpl implements CustomerDao {
+    private EntityCore core = new EntityCore();
+    private EntityManager = core.start();
     @Override
     public void remove(int id) {
         entityManager.getTransaction().begin();
@@ -35,10 +35,11 @@ public class ProductDaoImpl implements ProductDao {
         return entityManager.find(Product.class, id);
     }
 
-    @Override
-    public Product saveOrUpdate(Product product) {
 
-        int idOfFind = product.getId();
+    @Override
+    public Product saveOrUpdate(Customer customer) {
+
+        int idOfFind = customer.getId();
         Product productFromDbIfExistOrNull = entityManager.find(Product.class, idOfFind);
 
         if (productFromDbIfExistOrNull == null) {
