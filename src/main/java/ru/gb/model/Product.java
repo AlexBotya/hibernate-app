@@ -14,7 +14,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @Table(name = "products")
 
-public class Product extends ProductDaoImpl {
+public class Product {
 
     @Id
     @GeneratedValue

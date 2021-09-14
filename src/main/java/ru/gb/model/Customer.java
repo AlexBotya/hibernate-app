@@ -14,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Table
-public class Customer extends CustomerDaoImpl {
+public class Customer {
     @Id
     private int id;
     @Column
     private String name;
     @Column
-    @OneToMany(mappedBy = "Customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Product> products;
 
     public Customer(String name, List<Product> products) {
