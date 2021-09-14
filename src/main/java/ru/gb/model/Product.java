@@ -1,6 +1,7 @@
 package ru.gb.model;
 
 import lombok.*;
+import ru.gb.Service.impl.ProductDaoImpl;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @Table(name = "products")
 
-public class Product {
+public class Product extends ProductDaoImpl {
 
     @Id
     @GeneratedValue
@@ -22,10 +23,14 @@ public class Product {
     private String title;
     @Column(name = "price")
     private int price;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable  = false)
+    private Customer customer;
 
-    public Product(String title, int price) {
+    public Product(String title, int price, Customer customer) {
         this.title = title;
         this.price = price;
+        this.customer = customer;
     }
 
     public void setId(int id) {

@@ -3,7 +3,9 @@ package ru.gb.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import ru.gb.Service.CustomerDao;
+import ru.gb.Service.impl.CustomerDaoImpl;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Table
-public class Customer {
+public class Customer extends CustomerDaoImpl {
     @Id
     private int id;
     @Column
     private String name;
     @Column
-    @OneToMany
+    @OneToMany(mappedBy = "Customer", cascade = CascadeType.ALL)
     private List<Product> products;
 
     public Customer(String name, List<Product> products) {

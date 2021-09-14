@@ -9,5 +9,5 @@ public interface CustomerDao {
     void remove(int id);
     List<Product> findAll();
     Product findById(int id);
-    Product saveOrUpdate(Customer customer);
+    Customer saveOrUpdate(Customer customer);
 }
