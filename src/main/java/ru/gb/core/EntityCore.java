@@ -10,7 +10,7 @@ public class EntityCore {
     private static EntityManagerFactory factory;
     private static EntityManager entityManager;
 
-    public static EntityManager start() {
+    public  EntityManager start() {
     factory = new Configuration().configure("hibernate.cfg.xml")
             .buildSessionFactory();
     EntityManager entityManager = factory.createEntityManager();
