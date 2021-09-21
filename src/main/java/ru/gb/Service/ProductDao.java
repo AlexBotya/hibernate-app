@@ -1,14 +1,10 @@
 package ru.gb.Service;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import ru.gb.model.Product;
 
-import java.util.List;
+@Repository
+public interface ProductDao extends CrudRepository<Product, Integer> {
 
-public interface ProductDao {
-
-
-    void remove(int id);
-    List<Product> findAll();
-    Product findById(int id);
-    Product saveOrUpdate(Product product);
 }
