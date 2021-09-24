@@ -10,9 +10,10 @@
         <style type='text/css'> TABLE {border-collapse: collapse}TD, TH {padding: 3px;border: 1px solid black;}</style>
         <tr><td>ID</td><td>Name</td><td>Price</td></tr>
     <tr th:each="product : ${products}">
-        <td th:text="${product.id}"/>
-        <td th:text= "${product.name}"/>
-        <td th:text= "${product.price}"/>
+
+        <td th:text="${{product.id}}" /td>
+        <td th:text="${{product.name}}" /td>
+        <td th:text="${{product.price}}" /td>
     </tr>
     </table>
 </body>
