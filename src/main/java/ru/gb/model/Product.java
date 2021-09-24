@@ -3,6 +3,7 @@ package ru.gb.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @AllArgsConstructor
@@ -18,7 +19,7 @@ public class Product {
     @Id
     @GeneratedValue
     private int id;
-    @Column(name = "title", length = 30)
+    @NotBlank(message = "Product name cannot be blank")
     private String title;
     @Column(name = "price")
     private int price;
